@@ -1,0 +1,45 @@
+body {
+  background-color: white;
+  background-image: url("assets/images/star-bg.png");
+  background-repeat: repeat;
+  background-size: 600px 600px;
+  font-family: 'Lato', sans-serif;
+}
+
+.btn-black-white {
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+}
+
+.btn-black-white:hover {
+  border: 1px solid rgb(150, 150, 150);
+  color: rgb(150, 150, 150);
+}
+
+.btn-black-white:disabled {
+  border: 1px solid rgb(75, 75, 75);
+  color: rgb(75, 75, 75);
+}
+
+.btn-black-white:focus {
+  box-shadow: none;
+}
+
+.spinner-border {
+  width: 100px;
+  height: 100px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg-gray {
+  background: gray;
+}

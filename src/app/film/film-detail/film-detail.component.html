@@ -1,0 +1,32 @@
+<div class="container-md">
+  <div class="row">
+    <div class="col text-xs-center">
+      <button class="btn btn-black-white mt-5" type="button" routerLink="/films">Back to home page</button>
+    </div>
+  </div>
+
+  <div *ngIf="!film">
+    <div class="d-flex center">
+      <div class="spinner-border text-light"></div>
+    </div>
+  </div>
+
+  <div *ngIf="film" class="card card-style mt-5 text-xs-center">
+    <div class="row">
+      <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-12">
+        <img class="card-img" [src]="'assets/images/films/' + filmId + '.jpg'" [alt]="film.title">
+      </div>
+
+      <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-7 col-sm-6 col-xs-12">
+        <div class="card-body text-white">
+          <h2 class="card-title">{{film.title}}</h2>
+          <p class="card-text">Episode: {{film.episode_id}}</p>
+          <p class="card-text">Director: {{film.director}}</p>
+          <p class="card-text">Producer: {{film.producer}}</p>
+          <p class="card-text">Release date: {{film.release_date}}</p>
+          <p class="card-text">Opening crawl: <br> {{film.opening_crawl}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+  <form class="search-form" (ngSubmit)="search()">
+    <div class="input-group search-form-group">
+      <input type="text"
+             placeholder="The character name"
+             class="search-input form-control"
+             name="search"
+             [matAutocomplete]="auto"
+             [formControl]="searchFormControl"
+             [(ngModel)]="searchValue">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredPeopleOptions" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+      <button class="btn btn-black-white" type="submit">Search</button>
+    </div>
+  </form>
+
+  <div *ngIf="!peopleList">
+    <div class="d-flex center">
+      <div class="spinner-border text-light"></div>
+    </div>
+  </div>
+
+  <div *ngIf="peopleList">
+    <div class="row d-flex justify-content-center">
+      <div class="col-xxl-auto col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center text-center"
+           *ngFor="let people of peopleList.results">
+        <div class="people-card card mt-4" (click)="navigateToPeopleDetail(getPeopleId(people.url))">
+          <img [src]="'assets/images/characters/' + getPeopleId(people.url) + '.jpg'"
+               [alt]="people.name"
+               class="people-img card-img-top">
+          <div class="title">
+            <h4>{{people.name}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <button class="btn btn-black-white navigate-arrow-width"
+              (click)="navigateToPage(pageNumber - 1)"
+              [disabled]="!peopleList.previous ? true : null">
+        <
+      </button>
+      <button class="btn btn-black-white navigate-arrow-ml navigate-arrow-width"
+              (click)="navigateToPage(pageNumber + 1)"
+              [disabled]="!peopleList.next ? true : null">
+        >
+      </button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="container-md">
+  <div class="row">
+    <div class="col text-xs-center">
+      <button class="btn btn-black-white mt-5" type="button" routerLink="/vehicles">Back to home page</button>
+    </div>
+  </div>
+
+  <div *ngIf="!vehicle">
+    <div class="d-flex center">
+      <div class="spinner-border text-light"></div>
+    </div>
+  </div>
+
+  <div *ngIf="vehicle" class="card card-style mt-5 text-xs-center">
+    <div class="row">
+      <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-12">
+        <img class="card-img bg-gray"
+             [imageSrc]="'assets/images/vehicles/' + vehicleId + '.jpg'"
+             [alt]="vehicle.name">
+      </div>
+
+      <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-7 col-sm-6 col-xs-12">
+        <div class="card-body text-white">
+          <h2 class="card-title">{{vehicle.name}}</h2>
+          <p class="card-text">Model: {{vehicle.model}}</p>
+          <p class="card-text">Manufacturer: {{vehicle.manufacturer}}</p>
+          <p class="card-text">Length: {{vehicle.length}}</p>
+          <p class="card-text">Cost: {{vehicle.cost_in_credits}} credits</p>
+          <p class="card-text">Crew: {{vehicle.crew}} person</p>
+          <p class="card-text">Passenger: {{vehicle.passenger}} person</p>
+          <p class="card-text">Max atmosphering speed: {{vehicle.max_atmosphering_speed}}km/h</p>
+          <p class="card-text">Cargo capacity: {{vehicle.cargo_capacity}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
